@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>THE JERSEY VAULT — Showcase de Playeras de Fútbol</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<div id="progress"></div>
+<div id="glow"></div>
+
+<nav id="nav">
+  <a href="#inicio" class="logo">THE JERSEY <span>VAULT</span></a>
+  <ul>
+    <li><a href="#catalogo">Catálogo</a></li>
+    <li><a href="#nosotros">Por qué nosotros</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="#contacto" class="btn primary">Cotizar</a>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="hero-bg-text" id="bgText">JERSEYS · JERSEYS · JERSEYS</div>
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">Colección 2026</div>
+      <h1>Viste la <em>pasión</em> del juego</h1>
+      <p>Playeras de fútbol de edición limitada, retro y de temporada. Mira el catálogo, elige tu favorita y contáctanos para apartarla.</p>
+      <div class="hero-cta">
+        <a href="#catalogo" class="btn primary">Ver catálogo →</a>
+        <a href="#contacto" class="btn">Contacto</a>
+      </div>
+    </div>
+    <div class="hero-visual" id="heroVisual">
+      <div class="ring"></div><div class="ring r2"></div>
+      <div class="jersey" id="heroJersey"></div>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marquee"></div>
+</div>
+
+<section id="catalogo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Catálogo</h2>
+      <p>Toca cualquier playera para ver detalles, tallas y consultar disponibilidad.</p>
+    </div>
+    <div class="filters reveal" id="filters"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="feature" id="nosotros">
+  <div class="wrap">
+    <div class="stat reveal"><b data-count="100">0</b><span>% telas transpirables y de calidad</span></div>
+    <div class="stat reveal" style="--d:.12s"><b data-count="48">0</b><span>horas para responder tu consulta</span></div>
+    <div class="stat reveal" style="--d:.24s"><b data-count="30">0</b><span>modelos entre actuales y retro</span></div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap">
+    <div class="contact-box reveal">
+      <div>
+        <h2>¿Te gustó<br>alguna?</h2>
+        <p>Aquí no se paga en línea: escríbenos y coordinamos disponibilidad, tallas y entrega directamente contigo.</p>
+      </div>
+      <div class="contact-list">
+        <a class="contact-item" id="ctWhats" href="#" target="_blank" rel="noopener"><i>💬</i><div><small>WhatsApp</small><strong id="ctWhatsTxt"></strong></div></a>
+        <a class="contact-item" id="ctFb" href="#" target="_blank" rel="noopener"><i>📘</i><div><small>Facebook</small><strong id="ctFbTxt"></strong></div></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 THE JERSEY VAULT. Todos los derechos reservados.</span>
+  <span>Los precios y la disponibilidad pueden cambiar sin previo aviso.</span>
+</footer>
+
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true">
+    <button class="close" id="closeBtn" aria-label="Cerrar">✕</button>
+    <div class="modal-visual" id="mVisual"></div>
+    <div class="modal-info">
+      <h3 id="mName"></h3>
+      <div class="meta" id="mMeta"></div>
+      <div class="price" id="mPrice"></div>
+      <p id="mDesc"></p>
+      <strong style="font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)">Tallas</strong>
+      <div class="sizes" id="mSizes"></div>
+      <ul class="specs" id="mSpecs"></ul>
+      <a class="btn primary" id="mCta" href="#" target="_blank" rel="noopener">Consultar por WhatsApp →</a>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>
