@@ -9,117 +9,150 @@ const CONTACT = {
 };
 const CURRENCY = "MXN";
 
-/* Cada playera. Si tienes fotos reales, agrega  img:"fotos/archivo.jpg"
-   y se usará en lugar del dibujo generado.
-   pattern: solid | stripes | hoops | sash | halves */
-const JERSEYS = [
-  {id:1,club:"Atlético Aurora",season:"2026/27",type:"Local",price:1199,tag:"Nuevo",
-   c1:"#d71f2b",c2:"#ffffff",c3:"#111111",pattern:"stripes",
-   desc:"Rayas verticales clásicas con corte moderno. Tela ligera con tecnología de secado rápido y escudo bordado.",
-   sizes:["S","M","L","XL","XXL"],specs:["Material 100% poliéster reciclado","Corte regular (slim fit)","Escudo y número bordados"]},
-  {id:2,club:"Real Costa Azul",season:"2026/27",type:"Visitante",price:1199,tag:"Nuevo",
-   c1:"#0a3d91",c2:"#8fd3ff",c3:"#ffffff",pattern:"hoops",
-   desc:"Franjas horizontales en degradado azul inspiradas en el mar. Ventilación en la espalda y cuello en V.",
-   sizes:["S","M","L","XL"],specs:["Malla transpirable en axilas","Cuello en V","Etiqueta termosellada"]},
-  {id:3,club:"Deportivo Norte",season:"2025/26",type:"Local",price:999,tag:"",
-   c1:"#0b7a3b",c2:"#0b7a3b",c3:"#ffd400",pattern:"solid",
-   desc:"Verde profundo con detalles amarillos en cuello y mangas. Un diseño sobrio para el día a día.",
-   sizes:["M","L","XL","XXL"],specs:["Tela ligera de punto","Corte regular","Detalles contrastantes"]},
-  {id:4,club:"Unión Dorada",season:"Retro 1998",type:"Retro",price:1399,tag:"Retro",
-   c1:"#ffcc00",c2:"#0a8a3f",c3:"#0a8a3f",pattern:"sash",
-   desc:"Réplica retro con banda diagonal y cuello de botones. Edición limitada para coleccionistas.",
-   sizes:["S","M","L","XL"],specs:["Cuello polo con botones","Algodón-poliéster","Edición numerada"]},
-  {id:5,club:"Sporting Medianoche",season:"2026/27",type:"Tercera",price:1299,tag:"Nuevo",
-   c1:"#150f2e",c2:"#7c4dff",c3:"#c6ff3d",pattern:"halves",
-   desc:"Tercera equipación bicolor en tonos noche con acentos neón. La más atrevida de la colección.",
-   sizes:["S","M","L","XL"],specs:["Estampado reflejante","Corte slim","Costuras planas"]},
-  {id:6,club:"Club Tricolor",season:"2025/26",type:"Visitante",price:999,tag:"",
-   c1:"#ffffff",c2:"#e63946",c3:"#1d3557",pattern:"sash",
-   desc:"Blanca con banda diagonal roja y detalles marino. Elegante, limpia y fácil de combinar.",
-   sizes:["S","M","L","XL","XXL"],specs:["Tela suave al tacto","Cuello redondo","Lavable en máquina"]},
-  {id:7,club:"Furia Naranja",season:"Retro 2010",type:"Retro",price:1349,tag:"Retro",
-   c1:"#ff7a00",c2:"#ff7a00",c3:"#1b1b1b",pattern:"solid",
-   desc:"Naranja vibrante con detalles negros. Inspirada en el estilo de los 2010: sencilla y llamativa.",
-   sizes:["M","L","XL"],specs:["Corte clásico","Escudo bordado","Stock limitado"]},
-  {id:8,club:"Atlético Cumbre",season:"2026/27",type:"Local",price:1199,tag:"Nuevo",
-   c1:"#1b1b1b",c2:"#d4af37",c3:"#d4af37",pattern:"stripes",
-   desc:"Rayas finas negro y dorado con aire premium. Acabado mate y detalles metálicos.",
-   sizes:["S","M","L","XL","XXL"],specs:["Acabado mate premium","Detalles metálicos","Tela de secado rápido"]},
+const PRODUCT_FILES = [
+  "ADIDAS-M-300.jpeg",
+  "ADIDAS-TEMPLATE-M-400.jpeg",
+  "ALEMANIA-2006-S(1)-M(1)-500.jpeg",
+  "AMERICA-2007-NIKE-L-400.jpeg",
+  "AMERICA-2008-NIKE-L-400.jpeg",
+  "AMERICA-2015-NIKE-L-470.jpeg",
+  "AMERICA-2018-NIKE-L-470.jpeg",
+  "AMERICA-2020-M-NUEVACONETIQUETAS-1200.jpeg",
+  "AMERICA-M-NUEVACONETIQUETAS-1300.jpeg",
+  "AMERICA-NIKE-2016-L-470.jpeg",
+  "BARCELONA-2017-2018-NIKE-L-450.jpeg",
+  "BARCELONA-2018-2019-NIKE-NUEVACONETIQUETAS-L-950.jpeg",
+  "CABEZASROJAS-M-200.jpeg",
+  "CRUZAZUL-2009-M-650.jpeg",
+  "CRUZAZUL-2011-M-650.jpeg",
+  "CRUZAZUL-2013-L-750-FRENTE.jpeg",
+  "CRUZAZUL-2013-L-750-REVERSO.jpeg",
+  "CRUZAZUL-2014-M-UNDERARMOUR-450.jpeg",
+  "CRUZAZUL-UMBRO-L-900.jpeg",
+  "CRUZAZUL-UMBRO-S-450.jpeg",
+  "CRUZAZUL-UMBRO-XL-RETRO-650.jpeg",
+  "GUADALAJARA(CHIVAS)-2025-L-450.jpeg",
+  "GUADALAJARA-2003-M-650.jpeg",
+  "GUADALAJARA-2004-VISITA-S-550.jpeg",
+  "GUADALAJARA-2005-S-500-FRENTE.jpeg",
+  "GUADALAJARA-2005-S-500-REVERSO.jpeg",
+  "GUADALAJARA-2006-S-550.jpeg",
+  "GUADALAJARA-2006-VISITA-S-600-FRENTE.jpeg",
+  "GUADALAJARA-2006-VISITA-S-600-REVERSO.jpeg",
+  "GUADALAJARA-2007-S-500.jpeg",
+  "GUADALAJARA-2007-S-550.jpeg",
+  "GUADALAJARA-2011-S-500.jpeg",
+  "INGLATERRA-M-400-SCOREDRAWOFICIAL.jpeg",
+  "INGLATERRA-UMBRO-1998-M-750-.jpeg",
+  "INTERMILAN-POLO-S-250.jpeg",
+  "LEON-2017-M-450(2).jpeg",
+  "LEON-2017-M-450.jpeg",
+  "MAZATLAN-PORTERO-S-400-FRENTE.jpeg",
+  "MAZATLAN-PORTERO-S-400-REVERSO.jpeg",
+  "MEXICO-ATLETICA-L-550.jpeg",
+  "PSG-2015-L-NUEVACONETIQUETA-900.jpeg",
+  "PSG-2015-VISITANTE-L-750.jpeg",
+  "PSV-UMBRO-S-400.jpeg",
+  "PUMAS-PORTERO-M-600.jpeg",
+  "PUMAS-XL-500.jpeg",
+  "QUERETARO-PIRMA-M-250.jpeg",
+  "REALMADRID-ADIDAS-L-650.jpeg",
+  "REALMADRID-ADIDAS-XL-600.jpeg",
+  "SANTOSLAGUNA-L-600.jpeg",
+  "SANTOSLAGUNA-PORTERO-PUMA-S-400.jpeg",
+  "UMBRO-TEMPLATE-XL-250.jpeg",
 ];
 
-const PRODUCT_IMAGES = [
-  "imagenes/WhatsApp Image 2026-10-03 at 3.54.49 PM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 3.55.51 PM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 3.58.09 PM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 3.59.23 PM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 3.59.43 PM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 4.01.48 PM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 4.07.06 PM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 4.10.09 PM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 4.15.51 PM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 4.23.23 PM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 4.26.27 PM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 4.27.01 PM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 4.30.02 PM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 4.32.15 PM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 4.36.35 PM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.00.53 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.05.11 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.06.02 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.10.12 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.11.49 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.14.57 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.15.51 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.16.52 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.17.49 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.18.54 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.19.58 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.21.17 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.23.16 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.24.57 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.28.14 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.29.19 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.33.10 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.38.40 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.40.15 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.41.34 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.48.37 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.49.32 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.50.28 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.52.18 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.53.13 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.54.27 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.55.33 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.56.45 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.57.31 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.58.39 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 8.59.17 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 9.03.03 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 9.03.58 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 9.04.51 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 9.06.18 AM.jpeg",
-  "imagenes/WhatsApp Image 2026-10-03 at 9.07.39 AM.jpeg",
-];
-
-JERSEYS.forEach((jersey, index) => {
-  jersey.img = PRODUCT_IMAGES[index];
+const CLUB_LABELS = {
+  ADIDAS: "Adidas",
+  ALEMANIA: "Alemania",
+  AMERICA: "América",
+  BARCELONA: "Barcelona",
+  CABEZASROJAS: "Cabezas Rojas",
+  CRUZAZUL: "Cruz Azul",
+  "GUADALAJARA(CHIVAS)": "Guadalajara (Chivas)",
+  GUADALAJARA: "Guadalajara (Chivas)",
+  INGLATERRA: "Inglaterra",
+  INTERMILAN: "Inter de Milán",
+  LEON: "León",
+  MAZATLAN: "Mazatlán",
+  MEXICO: "México",
+  PSG: "PSG",
+  PSV: "PSV",
+  PUMAS: "Pumas",
+  QUERETARO: "Querétaro",
+  REALMADRID: "Real Madrid",
+  SANTOSLAGUNA: "Santos Laguna",
+  UMBRO: "Umbro",
+};
+const BRAND_LABELS = {
+  ADIDAS: "Adidas",
+  ATLETICA: "Atlética",
+  NIKE: "Nike",
+  PIRMA: "Pirma",
+  PUMA: "Puma",
+  SCOREDRAWOFICIAL: "ScoreDraw oficial",
+  UNDERARMOUR: "Under Armour",
+  UMBRO: "Umbro",
+};
+const groupedFiles = new Map();
+PRODUCT_FILES.forEach(filename => {
+  const key = filename.replace(/-(FRENTE|REVERSO)(?=\.jpeg$)/i, "");
+  if (!groupedFiles.has(key)) groupedFiles.set(key, []);
+  groupedFiles.get(key).push(filename);
 });
-JERSEYS.push(...PRODUCT_IMAGES.slice(JERSEYS.length).map((img, index) => {
-  const id = JERSEYS.length + index + 1;
+
+const JERSEYS = [...groupedFiles.entries()].map(([key, files], index) => {
+  const stem = key.replace(/\.jpeg$/i, "");
+  const tokens = stem.split("-");
+  const club = CLUB_LABELS[tokens[0]] || tokens[0];
+  const variantMatch = stem.match(/\((\d+)\)$/);
+  const seasonMatch = stem.match(/(?:^|-)((?:19|20)\d{2})(?:-((?:19|20)\d{2}))?(?=-|$)/);
+  const priceMatch = [...stem.matchAll(/(?:^|-)(\d+)(?:\(\d+\))?(?=-|$)/g)]
+    .map(match => match[1])
+    .filter(value => !seasonMatch || value !== seasonMatch[1] && value !== seasonMatch[2])
+    .pop();
+  const season = seasonMatch
+    ? seasonMatch[2] ? `${seasonMatch[1]}/${seasonMatch[2]}` : seasonMatch[1]
+    : "";
+  const sizes = [...new Set(tokens.flatMap(token => {
+    const match = token.match(/^(XXL|XL|S|M|L)(?:\(\d+\))?$/i);
+    return match ? [match[1].toUpperCase()] : [];
+  }))];
+  const brandToken = tokens.find(token => BRAND_LABELS[token]);
+  const brand = brandToken ? BRAND_LABELS[brandToken] : "";
+  const newWithTags = tokens.includes("NUEVACONETIQUETA") || tokens.includes("NUEVACONETIQUETAS");
+  const type = tokens.includes("PORTERO") ? "Portero"
+    : tokens.some(token => token === "VISITA" || token === "VISITANTE") ? "Visita"
+    : tokens.includes("RETRO") ? "Retro"
+    : tokens.includes("POLO") ? "Polo"
+    : tokens.includes("TEMPLATE") ? "Plantilla"
+    : "Playera";
+  const name = `${[type === "Plantilla" ? `Plantilla ${club}` : club, season].filter(Boolean).join(" ")}${variantMatch ? ` (${variantMatch[1]})` : ""}`;
+  const specs = [
+    brand && `Marca: ${brand}`,
+    sizes.length && `Talla${sizes.length > 1 ? "s" : ""}: ${sizes.join(" / ")}`,
+    type !== "Playera" && `Tipo: ${type}`,
+    newWithTags && "Nueva con etiqueta",
+  ].filter(Boolean);
+
   return {
-    ...JERSEYS[0],
-    id,
-    club: `Playera ${String(id).padStart(2, "0")}`,
-    season: "Por definir",
-    type: "Por definir",
-    price: 0,
-    tag: "",
+    id: index + 1,
+    club,
+    name,
+    season,
+    type,
+    brand,
+    price: priceMatch ? Number(priceMatch) : 0,
+    sizes,
+    specs,
+    tag: newWithTags ? "Nueva con etiqueta" : "",
+    newWithTags,
     desc: "",
-    sizes: [],
-    specs: [],
-    img,
+    images: files.sort((a, b) => a.includes("FRENTE") ? -1 : b.includes("FRENTE") ? 1 : 0)
+      .map(filename => `imagenes/${filename}`),
   };
-}));
+});
 
 /* =====================================================
    Generador de playera en SVG
@@ -163,30 +196,70 @@ function jerseySVG(j, uid){
   </svg>`;
 }
 const fmt = n => new Intl.NumberFormat("es-MX",{style:"currency",currency:CURRENCY,maximumFractionDigits:0}).format(n);
-const visual = (j,uid)=> j.img ? `<img src="${j.img}" alt="Playera ${j.club}" style="width:78%;border-radius:14px">` : jerseySVG(j,uid);
+const visual = (j,uid)=> `<div class="product-gallery${j.images.length > 1 ? " paired" : ""}">${j.images.map((image,index)=>`<img class="product-photo" src="${image}" alt="Playera ${j.name}${j.images.length > 1 ? index === 0 ? " frente" : " reverso" : ""}">`).join("")}</div>`;
+const jerseyMeta = j => [j.type, j.season, j.brand, j.sizes.join("/")].filter(Boolean).join(" · ");
 const waLink = msg => `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(msg)}`;
 
 /* =====================================================
    Render
    ===================================================== */
 const $ = s => document.querySelector(s);
-document.getElementById("heroJersey").innerHTML = jerseySVG(JERSEYS[0],"hero");
+document.getElementById("heroJersey").innerHTML = jerseySVG({
+  club: "Jersey Vault", c1: "#d71f2b", c2: "#ffffff", c3: "#111111", pattern: "stripes",
+},"hero");
 
 // marquee
 const words = ["Local","Visitante","Retro","Tercera","Edición limitada","Nueva temporada"];
 $("#marquee").innerHTML = [...words,...words].map(w=>`<span>${w}</span>`).join("");
 
 // filtros
-const types = ["Todas",...new Set(JERSEYS.map(j=>j.type))];
-$("#filters").innerHTML = types.map((t,i)=>`<button class="chip ${i===0?"active":""}" data-f="${t}">${t}</button>`).join("");
+const sortedUnique = values => [...new Set(values.filter(Boolean))].sort((a,b)=>a.localeCompare(b,"es"));
+const makeFilter = (id,label,values,allLabel,includeMissing=false,missingLabel="") => `
+  <label class="filter-control"><span>${label}</span><select id="${id}">
+    <option value="">${allLabel}</option>
+    ${values.map(value=>`<option value="${value}">${value}</option>`).join("")}
+    ${includeMissing?`<option value="__none">${missingLabel}</option>`:""}
+  </select></label>`;
+const sizes = sortedUnique(JERSEYS.flatMap(j=>j.sizes));
+$("#filters").innerHTML = `
+  <summary class="filter-summary">
+    <span class="filter-title">Filtros</span>
+    <span id="filterCount" role="status" aria-live="polite"></span>
+    <span class="filter-chevron" aria-hidden="true"></span>
+  </summary>
+  <div class="filter-content">
+    <div class="filter-controls">
+      ${makeFilter("filterTeam","Equipo",sortedUnique(JERSEYS.map(j=>j.club)),"Todos los equipos")}
+      ${makeFilter("filterBrand","Marca",sortedUnique(JERSEYS.map(j=>j.brand)),"Todas las marcas",JERSEYS.some(j=>!j.brand),"Sin marca indicada")}
+      ${makeFilter("filterType","Tipo",sortedUnique(JERSEYS.map(j=>j.type)),"Todos los tipos")}
+      ${makeFilter("filterSize","Talla",sizes,"Todas las tallas",JERSEYS.some(j=>!j.sizes.length),"Sin talla indicada")}
+      ${makeFilter("filterSeason","Temporada",sortedUnique(JERSEYS.map(j=>j.season)),"Todas las temporadas",JERSEYS.some(j=>!j.season),"Sin temporada indicada")}
+      <label class="filter-control"><span>Precio</span><select id="filterPrice">
+        <option value="">Cualquier precio</option>
+        <option value="under400">Menos de $400</option>
+        <option value="400to700">$400 - $700</option>
+        <option value="701to1000">$701 - $1,000</option>
+        <option value="over1000">Más de $1,000</option>
+      </select></label>
+      <label class="filter-control"><span>Condición</span><select id="filterCondition">
+        <option value="">Todas</option>
+        <option value="new">Nueva con etiqueta</option>
+        <option value="other">Otras</option>
+      </select></label>
+    </div>
+    <div class="filter-actions">
+      <button type="button" id="clearFilters">Limpiar filtros</button>
+    </div>
+  </div>
+`;
 
 // tarjetas
 $("#grid").innerHTML = JERSEYS.map((j,i)=>`
-  <article class="card reveal" data-type="${j.type}" data-id="${j.id}" style="--d:${(i%4)*.08}s" tabindex="0">
-    ${j.tag?`<span class="tag ${j.tag==="Nuevo"?"new":""}">${j.tag}</span>`:""}
+  <article class="card reveal" data-type="${j.type}" data-team="${j.club}" data-brand="${j.brand}" data-size="${j.sizes.join("|")}" data-season="${j.season}" data-price="${j.price}" data-new="${j.newWithTags}" data-id="${j.id}" style="--d:${(i%4)*.08}s" tabindex="0">
+    ${j.tag?`<span class="tag ${j.newWithTags?"new":""}">${j.tag}</span>`:""}
     <div class="stage">${visual(j,"c"+j.id)}</div>
-    <h3>${j.club}</h3>
-    <div class="meta">${j.type} · ${j.season}</div>
+    <h3>${j.name}</h3>
+    <div class="meta">${jerseyMeta(j)}</div>
     <div class="row"><span class="price">${fmt(j.price)}</span><span class="more">Ver detalles <b>→</b></span></div>
   </article>`).join("");
 
@@ -200,28 +273,59 @@ $("#ctFbTxt").textContent = CONTACT.facebookLabel;
    Interacciones
    ===================================================== */
 // filtros
-$("#filters").addEventListener("click",e=>{
-  const b = e.target.closest(".chip"); if(!b) return;
-  document.querySelectorAll(".chip").forEach(c=>c.classList.toggle("active",c===b));
-  document.querySelectorAll(".card").forEach(c=>{
-    const show = b.dataset.f==="Todas" || c.dataset.type===b.dataset.f;
-    c.classList.toggle("hide",!show);
-    if(show) c.classList.add("in");
+function applyFilters(){
+  const selected = {
+    team: $("#filterTeam").value,
+    brand: $("#filterBrand").value,
+    type: $("#filterType").value,
+    size: $("#filterSize").value,
+    season: $("#filterSeason").value,
+    price: $("#filterPrice").value,
+    condition: $("#filterCondition").value,
+  };
+  const matches = (actual,value) => !value || (value==="__none" ? !actual : actual===value);
+  let visibleCount = 0;
+  document.querySelectorAll(".card").forEach(card=>{
+    const price = Number(card.dataset.price);
+    const priceMatches = !selected.price
+      || selected.price==="under400" && price<400
+      || selected.price==="400to700" && price>=400 && price<=700
+      || selected.price==="701to1000" && price>700 && price<=1000
+      || selected.price==="over1000" && price>1000;
+    const conditionMatches = !selected.condition
+      || selected.condition==="new" && card.dataset.new==="true"
+      || selected.condition==="other" && card.dataset.new!=="true";
+    const show = matches(card.dataset.team,selected.team)
+      && matches(card.dataset.brand,selected.brand)
+      && matches(card.dataset.type,selected.type)
+      && (!selected.size || card.dataset.size.split("|").includes(selected.size))
+      && matches(card.dataset.season,selected.season)
+      && priceMatches
+      && conditionMatches;
+    card.classList.toggle("hide",!show);
+    if(show){card.classList.add("in");visibleCount++;}
   });
+  $("#filterCount").textContent = `${visibleCount} ${visibleCount===1?"playera":"playeras"}`;
+}
+$("#filters").addEventListener("change",applyFilters);
+$("#clearFilters").addEventListener("click",()=>{
+  document.querySelectorAll("#filters select").forEach(select=>select.value="");
+  applyFilters();
 });
+applyFilters();
 
 // modal
 const modal = $("#modal");
 function openModal(id){
   const j = JERSEYS.find(x=>x.id==id);
   $("#mVisual").innerHTML = visual(j,"m"+j.id);
-  $("#mName").textContent = j.club;
-  $("#mMeta").textContent = `${j.type} · ${j.season}`;
+  $("#mName").textContent = j.name;
+  $("#mMeta").textContent = jerseyMeta(j);
   $("#mPrice").textContent = fmt(j.price);
   $("#mDesc").textContent = j.desc;
   $("#mSizes").innerHTML = j.sizes.map(s=>`<span>${s}</span>`).join("");
   $("#mSpecs").innerHTML = j.specs.map(s=>`<li>${s}</li>`).join("");
-  $("#mCta").href = waLink(`Hola, me interesa la playera ${j.club} (${j.type} ${j.season}) de ${fmt(j.price)}. ¿Está disponible?`);
+  $("#mCta").href = waLink(`Hola, me interesa la playera ${j.name} (${jerseyMeta(j)}) de ${fmt(j.price)}. ¿Está disponible?`);
   modal.classList.add("open"); modal.setAttribute("aria-hidden","false");
   document.body.style.overflow="hidden";
 }
